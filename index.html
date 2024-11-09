@@ -198,39 +198,89 @@
 
   </div>
 
-  <div class="w3-container w3-padding-large w3-grey">
-    <h4 id="contact"><b>Contact Me</b></h4>
-    <div class="w3-row-padding w3-center w3-padding-24" style="margin:0 -16px">
-      <div class="w3-third w3-dark-grey">
-        <p><i class="fa fa-envelope w3-xxlarge w3-text-light-grey"></i></p>
-        <p>Minentlemvunyiswa2001@gmail.com</p>
-      </div>
-      <div class="w3-third w3-teal">
-        <p><i class="fa fa-map-marker w3-xxlarge w3-text-light-grey"></i></p>
-        <p>Cape Town , South Africa</p>
-      </div>
-      <div class="w3-third w3-dark-grey">
-        <p><i class="fa fa-phone w3-xxlarge w3-text-light-grey"></i></p>
-        <p>0625165830</p>
-      </div>
+ <!-- Contact Section -->
+<div class="w3-container w3-padding-large w3-grey">
+  <h4 id="contact"><b>Contact Me</b></h4>
+  <div class="w3-row-padding w3-center w3-padding-24" style="margin:0 -16px">
+    <div class="w3-third w3-dark-grey">
+      <p><i class="fa fa-envelope w3-xxlarge w3-text-light-grey"></i></p>
+      <p><a href="mailto:Minentlemvunyiswa2001@gmail.com" style="color: white; text-decoration: none;">Minentlemvunyiswa2001@gmail.com</a></p>
     </div>
-    <hr class="w3-opacity">
-    <form action="/action_page.php" target="_blank">
-      <div class="w3-section">
-        <label>Name</label>
-        <input class="w3-input w3-border" type="text" name="Name" required>
-      </div>
-      <div class="w3-section">
-        <label>Email</label>
-        <input class="w3-input w3-border" type="text" name="Email" required>
-      </div>
-      <div class="w3-section">
-        <label>Message</label>
-        <input class="w3-input w3-border" type="text" name="Message" required>
-      </div>
-      <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
-    </form>
+    <div class="w3-third w3-teal">
+      <p><i class="fa fa-map-marker w3-xxlarge w3-text-light-grey"></i></p>
+      <p>Cape Town, South Africa</p>
+      <!-- Google Map Embed -->
+      <div id="map" style="width:100%;height:200px;margin-top:10px;"></div>
+    </div>
+    <div class="w3-third w3-dark-grey">
+      <p><i class="fa fa-phone w3-xxlarge w3-text-light-grey"></i></p>
+      <p><a href="tel:+27625165830" style="color: white; text-decoration: none;">062 516 5830</a></p>
+    </div>
   </div>
+  <hr class="w3-opacity">
+  <!-- Contact Form -->
+  <form id="contactForm">
+    <div class="w3-section">
+      <label>Name</label>
+      <input class="w3-input w3-border" type="text" name="Name" required>
+    </div>
+    <div class="w3-section">
+      <label>Email</label>
+      <input class="w3-input w3-border" type="email" name="Email" required>
+    </div>
+    <div class="w3-section">
+      <label>Message</label>
+      <textarea class="w3-input w3-border" name="Message" required></textarea>
+    </div>
+    <button type="submit" class="w3-button w3-black w3-margin-bottom">
+      <i class="fa fa-paper-plane w3-margin-right"></i>Send Message
+    </button>
+  </form>
+</div>
+
+<!-- Google Maps API -->
+<script src="https://maps.app.goo.gl/S8zKPVzWr9Kesgtn9"></script>
+
+<script>
+// Google Maps Initialization
+function initMap() {
+  const location = { lat: -33.918861, lng: 18.4233 }; // Cape Town coordinates
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 10,
+    center: location,
+  });
+  new google.maps.Marker({
+    position: location,
+    map: map,
+  });
+}
+
+// Initialize the map when the page loads
+window.onload = initMap;
+
+// Form Submission Handling
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  const name = event.target.Name.value;
+  const email = event.target.Email.value;
+  const message = event.target.Message.value;
+
+  // Using mailto to open an email client with prefilled details
+  const mailtoLink = `mailto:Minentlemvunyiswa2001@gmail.com?subject=Contact%20Form%20Submission&body=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+
+  window.location.href = mailtoLink;
+});
+</script>
+
+<style>
+  #map { 
+    width: 100%; 
+    height: 200px; 
+    margin-top: 10px; 
+    border: 1px solid #ccc; 
+  }
+</style>
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
