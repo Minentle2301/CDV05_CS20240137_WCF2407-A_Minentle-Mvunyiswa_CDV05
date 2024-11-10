@@ -210,7 +210,9 @@
       <p><i class="fa fa-map-marker w3-xxlarge w3-text-light-grey"></i></p>
       <p>Cape Town, South Africa</p>
       <!-- Google Map Embed -->
-      <div id="map" style="width:100%;height:200px;margin-top:10px;"></div>
+      <div id="map" style="width:100%;height:200px;margin-top:10px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.8214417650092!2d18.51477527499691!3d-33.816920716372266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5f35d0301345%3A0x15e687edb9f01860!2s17%20Earlswood%20Rd%2C%20Parklands%2C%20Cape%20Town%2C%207441!5e0!3m2!1sen!2sza!4v1731226727690!5m2!1sen!2sza" width="280" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
     <div class="w3-third w3-dark-grey">
       <p><i class="fa fa-phone w3-xxlarge w3-text-light-grey"></i></p>
@@ -242,21 +244,7 @@
 <script src="https://maps.app.goo.gl/S8zKPVzWr9Kesgtn9"></script>
 
 <script>
-// Google Maps Initialization
-function initMap() {
-  const location = { lat: -33.918861, lng: 18.4233 }; // Cape Town coordinates
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 10,
-    center: location,
-  });
-  new google.maps.Marker({
-    position: location,
-    map: map,
-  });
-}
 
-// Initialize the map when the page loads
-window.onload = initMap;
 
 // Form Submission Handling
 document.getElementById('contactForm').addEventListener('submit', function(event) {
@@ -273,14 +261,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 });
 </script>
 
-<style>
-  #map { 
-    width: 100%; 
-    height: 200px; 
-    margin-top: 10px; 
-    border: 1px solid #ccc; 
-  }
-</style>
+
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
